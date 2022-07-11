@@ -1,0 +1,63 @@
+- name: Verify Connections
+  hosts: all
+  tasks:
+  - action: ping
+  - name: Update and Upgrade apt packages
+    become: true
+    apt:
+      upgrade: yes
+      update_cache: true
+      cache_valid_time: 86400
+  - name: install snapd
+    become: true
+    apt:
+      name: snapd
+      update_cache: yes
+  - name: Install mmcli
+    become: true
+    command: snap install modem-manager
+  - name: Install software-properties-common
+    become: true
+    apt:
+      name: software-properties-common
+      update_cache: yes
+  - name: Install Python3
+    become: true
+    apt:
+      name: python3
+      update_cache: yes
+  - name: Install raspi-config
+    become: true
+    apt:
+      name: raspi-config
+      update_cache: true
+  - name: Install Openssh-server
+    become: true
+    apt:
+      name: openssh-server
+      update_cache: true
+  - name: Install libqmi-utils
+    become: true
+    apt:
+      name: libqmi-utils
+      update_cache: true
+  - name: Install udhcpc
+    become: true
+    apt:
+      name: udhcpc
+      update_cache: true
+  - name: Install rpi-update
+    become: true
+    apt:
+      name: rpi-update
+      update_cache: true
+  - name: Install nmap
+    become: true
+    apt:
+      name: nmap
+      update_cache: true
+  - name: Install pipenv
+    become: true
+    apt:
+      name: pipenv
+      update_cache: true    
